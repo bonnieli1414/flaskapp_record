@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="#"/>
+
+    <!-- 這裡改用bootstrap，已內建normalize的css reset故註解reset.css-->
+    <!-- <link rel="stylesheet" href="{{ url_for('static',filename='css/reset.css') }}"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <!-- 原css引入語法 -->
+    <!-- <link rel="stylesheet" href="../static/style.css"> -->
+    <!-- 改用jinja2模板的引入語法 -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+    
+    <title>{% block title%}{% endblock title%}</title>
+
+    {% endblock head %}
+</head>
+<body>
+
+    {% block content %}
+    {% endblock content %}
+
+    <!-- 引入Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+    crossorigin="anonymous"></script>
+    <!-- 引入jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <!-- 原js引入語法 -->
+    <!-- <script src="../static/js/script.js"></script>-->
+    <!-- 改用jinja2模板的引入語法 -->
+    <script type = "text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>

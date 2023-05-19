@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}網站內容管理系統{% endblock title %}
+
+
+{% block content %}
+
+<body>
+    <div class="d-flex">
+        <aside class="p-5 bg-light" style="width: 280px; height: 100vh;">
+            <h4 class="text-center">
+                <a href="/adminBoard" class="link-dark text-decoration-none">網站內容管理</a>
+            </h4>
+            <hr>
+            <ul class="nav nav-pills flex-column align-items-center">
+                <li class="nav-item">
+                    <a href="/adminProduct" class="nav-link active" aria-current="page">
+                        商品管理
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/adminInventory" class="nav-link link-dark">
+                        庫存管理
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/adminPurchase" class="nav-link link-dark">
+                        進貨管理
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/adminOrder" class="nav-link link-dark">
+                        訂單管理
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link link-dark">
+                        其&emsp;&emsp;他
+                    </a>
+                </li>
+            </ul>
+
+            <hr>
+            <div class="d-flex justify-content-center pe-4">
+                <div><img src="../static/image/star.png" width="32" height="32" class="rounded-circle"></div>
+                <div><a class="dropdown-item" href="/adminSignout">登&emsp;&emsp;出</a></div>
+            </div>
+
+        </aside>
+        <main class="p-5">
+
+            <h5 class="py-2" style="color:blue">{{msg}}</h5>
+
+        </main>
+    </div>
+</body>
+
+{% endblock content %}

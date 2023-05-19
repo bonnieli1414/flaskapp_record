@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block title %}admin{% endblock title %}
+
+{% block content %}
+
+<body onload="loading()">
+    <div id="loadingPage"></div>
+
+    <div id="main" class="text-center mx-auto pt-3" style="max-width: 330px;">
+        <h1 class="py-3">網站內容管理</h1>
+        <h5 class="py-2" style="color:red">{{msg}}</h5>
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <button class="nav-link active" id="nav-login-tab" data-bs-toggle="tab" data-bs-target="#nav-login"
+                    type="button" role="tab" aria-controls="nav-login" aria-selected="true">登入</button>
+                <button class="nav-link" id="nav-register-tab" data-bs-toggle="tab" data-bs-target="#nav-register"
+                    type="button" role="tab" aria-controls="nav-register" aria-selected="false">註冊</button>
+            </div>
+        </nav>
+        <div class="tab-content py-2" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-login" role="tabpanel" aria-labelledby="nav-login-tab">
+                <form action="/adminSignin" method="post">
+                    <div class="form-floating py-2">
+                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"
+                            name="adminEmail">
+                        <label for="floatingInput">電子信箱</label>
+                    </div>
+                    <div class="form-floating py-2">
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
+                            name="adminPassword">
+                        <label for="floatingPassword">密碼</label>
+                    </div>
+                    <button class="w-50 btn btn-lg btn-primary my-4" type="submit">登入</button>
+                </form>
+            </div>
+            <div class="tab-pane fade" id="nav-register" role="tabpanel" aria-labelledby="nav-register-tab">
+                <form action="/adminSignUp" method="post">
+                    <div class="form-floating py-2">
+                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"
+                            name="adminEmail">
+                        <label for="floatingInput">電子信箱</label>
+                    </div>
+                    <div class="form-floating py-2">
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
+                            name="adminName">
+                        <label for="floatingPassword">使用者名稱</label>
+                    </div>
+                    <div class="form-floating py-2">
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
+                            name="adminPassword">
+                        <label for="floatingPassword">密碼</label>
+                    </div>
+                    <div class="form-floating py-2">
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
+                            name="adminPasswordCheck">
+                        <label for="floatingPassword">確認密碼</label>
+                    </div>
+                    <button class="w-50 btn btn-lg btn-primary my-4" type="submit">註冊</button>
+                </form>
+            </div>
+            <p class="text-muted">&copy; 2022-2023</p>
+        </div>
+    </div>
+
+    <script>
+
+        function getDom() {
+            const main = document.getElementById("main");
+            const loadingPage = document.getElementById("loadingPage");
+        };
+
+        function loading() {
+            getDom();
+            main.style.visibility = "hidden";
+            setTimeout(waitTime, 1000);
+        };
+
+        function waitTime() {
+            getDom();
+            loadingPage.style.display = "none";
+            main.style.visibility = "visible";
+        };
+
+    </script>
+</body>
+{% endblock content %}
